@@ -13,8 +13,6 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         flagsView.setUpView(view: view)
+        flagsView.setUpImageForButton()
     }
-
-
 }
-
