@@ -7,100 +7,65 @@
 
 import UIKit
 
-var gameLogic = GameLogic()
-
 struct FlagsView {
+    var correctAnswer: Int?
     // MARK: - Vertical Stack
-    lazy var stackView: UIStackView = {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.backgroundColor = UIColor(red: 0.35, green: 0.25, blue: 0.66, alpha: 1.0)
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        [self.scoreLabel, self.firstButton, self.secondButton, self.thirdtButton, self.questionLabel].forEach { stack.addSubview($0)}
-        return stack
-    }()
-    // MARK: - Label of user score
-    lazy var scoreLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .right
-        label.textColor = .black
-        label.font = UIFont(name: "Copperplate", size: 20)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Your score: \(gameLogic.userScore)"
-        return label
-    }()
-    // MARK: - Images of flags
+    var stackView = StackView()
     
-    private func flagsButtons(_ tag: Int) -> UIButton {
-        lazy var button: UIButton = {
-            let btn = UIButton()
-            btn.translatesAutoresizingMaskIntoConstraints = false
-            btn.imageView?.contentMode = .scaleAspectFill
-            btn.layer.borderWidth = 1
-            btn.tag = tag
-            return btn
-        }()
-        return button
-    }
+    // MARK: - Labels
+    var scoreLabel = Label(textAlignment: .right, textColor: .black, font: UIFont(name: "Copperplate", size: 20)!, text: nil)
+    var questionLabel = Label(textAlignment: .center, textColor: .white, font: UIFont(name: "Copperplate", size: 25)!, text: nil)
     
-    lazy var firstButton = flagsButtons(1)
-    lazy var secondButton = flagsButtons(2)
-    lazy var thirdtButton = flagsButtons(3)
+    // MARK: - Buttons
+    var firstButton = Buttons(tag: 0)
+    var secondButton = Buttons(tag: 1)
+    var thirdtButton = Buttons(tag: 2)
     
     mutating func setUpImageForButton() {
-        var correctAnswer = Int.random(in: 0...2)
-        var flags = gameLogic.flags
+        let correct = Int.random(in: 0...2)
+        correctAnswer = correct
+        var flags = Data.shared.flags
         flags.shuffle()
-        firstButton.setImage(UIImage(named: flags[0]), for: .normal)
-        secondButton.setImage(UIImage(named: flags[1]), for: .normal)
-        thirdtButton.setImage(UIImage(named: flags[2]), for: .normal)
+        firstButton.btn.setImage(UIImage(named: flags[0]), for: .normal)
+        secondButton.btn.setImage(UIImage(named: flags[1]), for: .normal)
+        thirdtButton.btn.setImage(UIImage(named: flags[2]), for: .normal)
         
-        questionLabel.text = "Select flag of: \(flags[correctAnswer])"
+        questionLabel.label.text = "Select flag of: \(flags[correct])"
+        scoreLabel.label.text = "Your score: \(Data.shared.userScore)"
     }
     
-    // MARK: - Question label
-    lazy var questionLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .right
-        label.textColor = .white
-        label.font = UIFont(name: "Copperplate", size: 25)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
     
-    
-
     // MARK: - Set up view func
     mutating func setUpView(view: UIView) {
-        view.addSubview(stackView)
+        view.addSubview(stackView.stack)
+        stackView.setUpStack(views: [scoreLabel.label, questionLabel.label, firstButton.btn, secondButton.btn, thirdtButton.btn])
+        stackView.setUpConstraits(view)
         
-        //Stack constraits
-        stackView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        //Labels constraits
+        NSLayoutConstraint.activate([
+            scoreLabel.label.topAnchor.constraint(equalTo: stackView.stack.topAnchor, constant: 90),
+            scoreLabel.label.trailingAnchor.constraint(equalTo: stackView.stack.trailingAnchor, constant: -30)])
+        NSLayoutConstraint.activate([
+            questionLabel.label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            questionLabel.label.topAnchor.constraint(equalTo: thirdtButton.btn.bottomAnchor, constant: 70)])
         
-        //Label constraits
-        scoreLabel.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 90).isActive = true
-        scoreLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -30).isActive = true
+        // Buttons constraits
+        NSLayoutConstraint.activate([
+            firstButton.btn.topAnchor.constraint(equalTo: stackView.stack.topAnchor, constant: 150),
+            firstButton.btn.widthAnchor.constraint(equalToConstant: 220),
+            firstButton.btn.heightAnchor.constraint(equalToConstant: 123),
+            firstButton.btn.centerXAnchor.constraint(equalTo: stackView.stack.centerXAnchor)])
         
-        // Buttons constraits 640 × 427 pixels
-        firstButton.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 150).isActive = true
-        firstButton.widthAnchor.constraint(equalToConstant: 220).isActive = true
-        firstButton.heightAnchor.constraint(equalToConstant: 123).isActive = true
-        firstButton.centerXAnchor.constraint(equalTo: stackView.centerXAnchor).isActive = true
-        
-        secondButton.topAnchor.constraint(equalTo: firstButton.bottomAnchor, constant: 50).isActive = true
-        secondButton.widthAnchor.constraint(equalToConstant: 220).isActive = true
-        secondButton.heightAnchor.constraint(equalToConstant: 123).isActive = true
-        secondButton.centerXAnchor.constraint(equalTo: stackView.centerXAnchor).isActive = true
-        
-        thirdtButton.topAnchor.constraint(equalTo: secondButton.bottomAnchor, constant: 50).isActive = true
-        thirdtButton.widthAnchor.constraint(equalToConstant: 220).isActive = true
-        thirdtButton.heightAnchor.constraint(equalToConstant: 123).isActive = true
-        thirdtButton.centerXAnchor.constraint(equalTo: stackView.centerXAnchor).isActive = true
-        
-        questionLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        questionLabel.topAnchor.constraint(equalTo: thirdtButton.bottomAnchor, constant: 70).isActive = true
+        NSLayoutConstraint.activate([
+            secondButton.btn.topAnchor.constraint(equalTo: firstButton.btn.bottomAnchor, constant: 50),
+            secondButton.btn.widthAnchor.constraint(equalToConstant: 220),
+            secondButton.btn.heightAnchor.constraint(equalToConstant: 123),
+            secondButton.btn.centerXAnchor.constraint(equalTo: stackView.stack.centerXAnchor)])
+
+        NSLayoutConstraint.activate([
+            thirdtButton.btn.topAnchor.constraint(equalTo: secondButton.btn.bottomAnchor, constant: 50),
+            thirdtButton.btn.widthAnchor.constraint(equalToConstant: 220),
+            thirdtButton.btn.heightAnchor.constraint(equalToConstant: 123),
+            thirdtButton.btn.centerXAnchor.constraint(equalTo: stackView.stack.centerXAnchor)])
     }
 }

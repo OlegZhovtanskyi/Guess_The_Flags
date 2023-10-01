@@ -7,13 +7,14 @@
 
 import UIKit
 
-struct GameLogic {
+class  Data {
+    static let shared = Data()
+    var userScore = 0
+    
     var flags = ["andora", "argentina", "armenia", "australia", "austria",
                  "barbados", "belgium", "brazil", "canada", "chechia", "china",
                  "columbia", "denmark", "estonia", "finland", "france", "georgia",
                  "germany", "greece", "india", "israel", "italy", "japan", "latvia",
                  "lithuania", "luxembourg", "norway", "poland", "sweden", "switzerland",
                  "uk", "ukraine", "usa"]
-    
-    var userScore = 0
 }

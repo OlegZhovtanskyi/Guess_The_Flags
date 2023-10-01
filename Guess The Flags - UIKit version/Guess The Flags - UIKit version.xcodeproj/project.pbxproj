@@ -7,16 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		743C81E12AC99A93006AC0DB /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C81E02AC99A93006AC0DB /* StackView.swift */; };
+		743C81E32AC9A606006AC0DB /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C81E22AC9A606006AC0DB /* Labels.swift */; };
+		743C81E52AC9A927006AC0DB /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743C81E42AC9A927006AC0DB /* Buttons.swift */; };
 		74D9B3932AC05B4A00C9EE32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D9B3922AC05B4A00C9EE32 /* AppDelegate.swift */; };
 		74D9B3952AC05B4A00C9EE32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D9B3942AC05B4A00C9EE32 /* SceneDelegate.swift */; };
 		74D9B3972AC05B4A00C9EE32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D9B3962AC05B4A00C9EE32 /* ViewController.swift */; };
 		74D9B39C2AC05B4B00C9EE32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74D9B39B2AC05B4B00C9EE32 /* Assets.xcassets */; };
 		74D9B39F2AC05B4B00C9EE32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74D9B39D2AC05B4B00C9EE32 /* LaunchScreen.storyboard */; };
 		74D9B3A82AC0613E00C9EE32 /* FlagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D9B3A72AC0613E00C9EE32 /* FlagsView.swift */; };
-		74D9B3AA2AC06A8D00C9EE32 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D9B3A92AC06A8D00C9EE32 /* GameLogic.swift */; };
+		74D9B3AA2AC06A8D00C9EE32 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D9B3A92AC06A8D00C9EE32 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		743C81E02AC99A93006AC0DB /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
+		743C81E22AC9A606006AC0DB /* Labels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
+		743C81E42AC9A927006AC0DB /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		74D9B38F2AC05B4A00C9EE32 /* Guess The Flags - UIKit version.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Guess The Flags - UIKit version.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74D9B3922AC05B4A00C9EE32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74D9B3942AC05B4A00C9EE32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -25,7 +31,7 @@
 		74D9B39E2AC05B4B00C9EE32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		74D9B3A02AC05B4B00C9EE32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74D9B3A72AC0613E00C9EE32 /* FlagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagsView.swift; sourceTree = "<group>"; };
-		74D9B3A92AC06A8D00C9EE32 /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
+		74D9B3A92AC06A8D00C9EE32 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +45,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		743C81E62AC9ADEC006AC0DB /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				743C81E22AC9A606006AC0DB /* Labels.swift */,
+				743C81E42AC9A927006AC0DB /* Buttons.swift */,
+				743C81E02AC99A93006AC0DB /* StackView.swift */,
+			);
+			path = UIElements;
+			sourceTree = "<group>";
+		};
 		74D9B3862AC05B4A00C9EE32 = {
 			isa = PBXGroup;
 			children = (
@@ -61,7 +77,8 @@
 				74D9B3A62AC05C6000C9EE32 /* Resources */,
 				74D9B3962AC05B4A00C9EE32 /* ViewController.swift */,
 				74D9B3A72AC0613E00C9EE32 /* FlagsView.swift */,
-				74D9B3A92AC06A8D00C9EE32 /* GameLogic.swift */,
+				74D9B3A92AC06A8D00C9EE32 /* Data.swift */,
+				743C81E62AC9ADEC006AC0DB /* UIElements */,
 				74D9B39B2AC05B4B00C9EE32 /* Assets.xcassets */,
 				74D9B3A02AC05B4B00C9EE32 /* Info.plist */,
 			);
@@ -151,8 +168,11 @@
 				74D9B3972AC05B4A00C9EE32 /* ViewController.swift in Sources */,
 				74D9B3932AC05B4A00C9EE32 /* AppDelegate.swift in Sources */,
 				74D9B3A82AC0613E00C9EE32 /* FlagsView.swift in Sources */,
-				74D9B3AA2AC06A8D00C9EE32 /* GameLogic.swift in Sources */,
+				743C81E32AC9A606006AC0DB /* Labels.swift in Sources */,
+				74D9B3AA2AC06A8D00C9EE32 /* Data.swift in Sources */,
 				74D9B3952AC05B4A00C9EE32 /* SceneDelegate.swift in Sources */,
+				743C81E12AC99A93006AC0DB /* StackView.swift in Sources */,
+				743C81E52AC9A927006AC0DB /* Buttons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,8 +321,8 @@
 				INFOPLIST_FILE = "Guess The Flags - UIKit version/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -331,8 +351,8 @@
 				INFOPLIST_FILE = "Guess The Flags - UIKit version/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
